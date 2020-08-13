@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Room</title>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{../bootstrap.min.css}"/>
+</head>
+<body>
+<div class="col-3"></div>
+<div class="container col-6">
+    <h1>Sell Product</h1>
+    <form th:object="${products}" th:action="@{save}" action="#" method="post">
+        <div class="form-group blu-margin">
+            <select class="form-control"   id="dropdown">
+                <option value="0">select product</option>
+                <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.name}"></option>
+            </select>
+        </div>
+        <div style="clear: both; display: block; height: 10px"></div>
+        <div>
+            <label text="Quantity" th:for="quantity">Quantity</label>
+            <input type="number" th:field="*{quantity}" class="form-control"/>
+        </div>
+        <div style="clear: both; display: block; height: 10px"></div>
+        <input type="submit" class="btn btn-success" value="Sell Product"/>
+    </form>
+</div>
+</body>
+</html>
